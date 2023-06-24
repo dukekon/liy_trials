@@ -1,73 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:liy_trials/pages/suction/suction.dart';
+import 'package:liy_trials/models/trials_model.dart';
+import 'package:liy_trials/widgets/AppButton.dart';
 
 class TrialsItem extends StatelessWidget {
-  const TrialsItem({super.key});
+  const TrialsItem({required this.item, super.key});
+
+  final TrialModel item;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              offset: const Offset(0, 1),
+              color: Colors.black12,
               blurRadius: 4,
-            )
+            ),
           ],
         ),
         clipBehavior: Clip.antiAlias,
-        child: Column(
-          children: [
-            Image.asset('assets/images/trials_list_01.webp'),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Image.asset(item.image),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Expanded(
-                    child: Column(
+                  Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'SUCTIONING',
-                          style: TextStyle(
-                              fontSize: 16,
-                              height: 1.5,
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Timed training for suction',
-                          style: TextStyle(
-                              fontSize: 14, height: 1.5, color: Colors.black26),
-                        ),
-                      ],
-                    ),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SuctionPage()));
-                    },
-                    style: ButtonStyle(
-                        side: MaterialStateProperty.all(
-                            const BorderSide(color: Colors.blue)),
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20))),
-                        padding: MaterialStateProperty.all(
-                            const EdgeInsets.symmetric(
-                                vertical: 8, horizontal: 24))),
-                    child: const Text('Start'),
-                  )
-                ],
-              ),
-            )
-          ],
-        ));
+                        Text(item.name,
+                            style: const TextStyle(
+                                fontSize: 22,
+                                // fontWeight: FontWeight.bold,
+                                color: Colors.blue)),
+                        const SizedBox(height: 4),
+                        Text(item.description,
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.grey[400])),
+                      ]),
+                  AppButton(text: 'Start', onPressed: () {})
+                ]),
+          ),
+        ]));
   }
 }

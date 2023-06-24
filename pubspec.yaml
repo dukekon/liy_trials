@@ -1,5 +1,5 @@
 name: liy_trials
-description: A project.
+description: a project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -59,11 +59,12 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  assets:
-    - assets/images/trials_list_01.webp
-    - assets/animation.riv
-  # To add assets to your application, add an assets section, like this:
 
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/trials_suction.webp
+    - assets/animation.riv
+    - lib/jsons/trialsList.json
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
