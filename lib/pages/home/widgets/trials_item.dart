@@ -45,8 +45,11 @@ class TrialsItem extends StatelessWidget {
                   AppButton(
                       text: 'Start',
                       onPressed: () {
-                        MaterialPageRoute(
-                            builder: (context) => const SuctionPage());
+                        print('going...');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SuctionPage()));
                       })
                 ]),
           ),

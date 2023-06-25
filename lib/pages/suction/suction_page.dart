@@ -41,6 +41,7 @@ class _SuctionPageState extends State<SuctionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.black87),
           centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 0.5,
@@ -48,7 +49,6 @@ class _SuctionPageState extends State<SuctionPage> {
           actions: [
             IconButton(
               icon: const Icon(Icons.settings_outlined),
-              color: Colors.black87,
               onPressed: () {
                 setState(() => _showDebugBox = !_showDebugBox);
                 print(_showDebugBox);
