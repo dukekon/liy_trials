@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:liy_trials/utils/time.dart';
+import 'package:liy_trials/utils/time.dart';
 import 'package:liy_trials/widgets/AppButton.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -49,10 +51,6 @@ class _SuctionControllerState extends State<SuctionController> {
     });
   }
 
-  String _formatTime(int time) {
-    return time < 10 ? '0$time' : '$time';
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -68,7 +66,7 @@ class _SuctionControllerState extends State<SuctionController> {
             backgroundColor: Colors.grey[200]!,
             center: _isStarted
                 ? Text(
-                    '${_formatTime(_seconds)} : ${_formatTime(_milliseconds)}',
+                    '${TimeControl.format(_seconds)} : ${TimeControl.format(_milliseconds)}',
                     style: const TextStyle(fontSize: 20))
                 : TextButton(
                     onPressed: _onStart,
