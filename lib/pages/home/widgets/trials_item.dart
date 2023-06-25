@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liy_trials/models/trials_model.dart';
+import 'package:liy_trials/pages/suction/suction_page.dart';
 import 'package:liy_trials/widgets/AppButton.dart';
 
 class TrialsItem extends StatelessWidget {
@@ -41,7 +42,12 @@ class TrialsItem extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 16, color: Colors.grey[400])),
                       ]),
-                  AppButton(text: 'Start', onPressed: () {})
+                  AppButton(
+                      text: 'Start',
+                      onPressed: () {
+                        MaterialPageRoute(
+                            builder: (context) => const SuctionPage());
+                      })
                 ]),
           ),
         ]));
