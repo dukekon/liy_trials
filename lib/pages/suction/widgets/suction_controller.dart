@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:liy_trials/utils/time.dart';
@@ -7,7 +8,9 @@ import 'package:liy_trials/widgets/AppButton.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class SuctionController extends StatefulWidget {
-  const SuctionController({super.key});
+  const SuctionController({required this.changeStart, super.key});
+
+  final Function(bool isStarted) changeStart;
 
   @override
   State<SuctionController> createState() => _SuctionControllerState();
@@ -25,6 +28,7 @@ class _SuctionControllerState extends State<SuctionController> {
   void _onStart() {
     if (_isStarted) return;
     _isStarted = true;
+    widget.changeStart(_isStarted);
     _timer = Timer.periodic(duration, (timer) {
       if (_totalTime >= 1500) {
         timer.cancel();
@@ -49,6 +53,7 @@ class _SuctionControllerState extends State<SuctionController> {
       _seconds = 0;
       _milliseconds = 0;
     });
+    widget.changeStart(_isStarted);
   }
 
   @override

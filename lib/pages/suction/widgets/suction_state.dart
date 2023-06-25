@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class SuctionState extends StatefulWidget {
-  const SuctionState({Key? key}) : super(key: key);
+  SuctionState({required this.state, required this.position, Key? key})
+      : super(key: key);
+  final ValueNotifier<bool> state;
+  String position = 'Not Enter';
 
   @override
   State<SuctionState> createState() => _SuctionStateState();
@@ -14,11 +17,11 @@ class _SuctionStateState extends State<SuctionState> {
         // margin: const EdgeInsets.symmetric(horizontal: 16),
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 24),
         color: Colors.white,
-        child: const Column(children: [
-          Row(children: [
-            Text('Tube Location', style: TextStyle(fontSize: 20)),
-            Spacer(),
-            Text('Throat', style: TextStyle(fontSize: 20, color: Colors.blue)),
+        child: Column(children: [
+          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            const Text('Tube Position', style: TextStyle(fontSize: 20)),
+            Text(widget.position,
+                style: const TextStyle(fontSize: 20, color: Colors.blue)),
           ]),
         ]));
   }
