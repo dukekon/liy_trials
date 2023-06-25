@@ -69,7 +69,7 @@ class _SuctionControllerState extends State<SuctionController> {
             center: _isStarted
                 ? Text(
                     '${_formatTime(_seconds)} : ${_formatTime(_milliseconds)}',
-                    style: TextStyle(fontSize: 20))
+                    style: const TextStyle(fontSize: 20))
                 : TextButton(
                     onPressed: _onStart,
                     style: TextButton.styleFrom(
