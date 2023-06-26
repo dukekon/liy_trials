@@ -3,7 +3,7 @@
 *.log
 *.pyc
 *.swp
-gi.txt
+git.txt
 .DS_Store
 .atom/
 .buildlog/
