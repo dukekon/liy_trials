@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:liy_trials/models/trials_model.dart';
 import 'package:liy_trials/pages/suction/suction_page.dart';
-import 'package:liy_trials/widgets/AppButton.dart';
+import 'package:liy_trials/widgets/app_button.dart';
 
 class TrialsItem extends StatelessWidget {
   const TrialsItem({required this.item, super.key});

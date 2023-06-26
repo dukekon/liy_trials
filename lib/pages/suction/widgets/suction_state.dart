@@ -4,7 +4,7 @@ class SuctionState extends StatefulWidget {
   SuctionState({required this.state, required this.position, Key? key})
       : super(key: key);
   final ValueNotifier<bool> state;
-  String position = 'Not Enter';
+  String position;
 
   @override
   State<SuctionState> createState() => _SuctionStateState();
@@ -19,9 +19,13 @@ class _SuctionStateState extends State<SuctionState> {
         color: Colors.white,
         child: Column(children: [
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            const Text('Tube Position', style: TextStyle(fontSize: 20)),
-            Text(widget.position,
-                style: const TextStyle(fontSize: 20, color: Colors.blue)),
+            const Text('Pos Checkpoint', style: TextStyle(fontSize: 20)),
+            AnimatedSwitcher(
+              duration: const Duration(milliseconds: 200),
+              child: Text(widget.position,
+                  key: UniqueKey(),
+                  style: const TextStyle(fontSize: 20, color: Colors.blue)),
+            )
           ]),
         ]));
   }

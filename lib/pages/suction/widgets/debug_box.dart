@@ -18,7 +18,7 @@ class _DebugBoxState extends State<DebugBox> {
   Widget build(BuildContext context) {
     return Container(
         width: 40,
-        height: 120,
+        // height: 120,
         decoration: const BoxDecoration(
             color: Colors.blue,
             borderRadius: BorderRadius.only(

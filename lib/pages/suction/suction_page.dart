@@ -20,6 +20,7 @@ class _SuctionPageState extends State<SuctionPage> {
   void _changeStart(bool isStarted) {
     _isStartedNotifier.value = isStarted;
     if (!isStarted) {
+      _positionNotifier.value = '';
       setState(() => _position = 'Not Enter');
     }
     print(
@@ -80,7 +81,8 @@ class _SuctionPageState extends State<SuctionPage> {
               child: Container(
                   color: Colors.white,
                   child: Column(children: [
-                    SuctionController(changeStart: _changeStart)
+                    SuctionController(
+                        position: _positionNotifier, changeStart: _changeStart)
                   ])))
         ]));
   }
