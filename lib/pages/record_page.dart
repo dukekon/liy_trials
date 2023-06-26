@@ -118,9 +118,7 @@ class _RecordPageState extends State<RecordPage> {
                       trailing: Text(
                           _records[idx].result == 'Fail'
                               ? 'Fail'
-                              : _records[idx]
-                                  .result
-                                  .replaceAll('Passed! Time:', ''),
+                              : _records[idx].result.replaceAll('Passed! ', ''),
                           style: TextStyle(
                               color: _records[idx].result == 'Fail'
                                   ? Colors.red
