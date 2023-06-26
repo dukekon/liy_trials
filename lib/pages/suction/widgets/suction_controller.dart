@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:liy_trials/pages/record.dart';
+import 'package:liy_trials/pages/record_page.dart';
 import 'package:liy_trials/utils/time.dart';
 import 'package:liy_trials/widgets/app_button.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -38,7 +38,7 @@ class _SuctionControllerState extends State<SuctionController> {
           (widget.position.value == 'no throat' && _throughLung) ||
           (widget.position.value == 'maw' && _throughThroat)) {
         if (widget.position.value == 'no throat') {
-          setState(() => _result = 'success');
+          setState(() => _result = 'Passed!  Time: $_seconds: $_milliseconds');
         } else {
           setState(() => _result = 'fail');
         }
@@ -88,15 +88,12 @@ class _SuctionControllerState extends State<SuctionController> {
                     alignment: Alignment.center,
                     width: double.maxFinite,
                     decoration: BoxDecoration(
-                      color: _result == 'success'
-                          ? Colors.green[400]
-                          : Colors.red[400],
+                      color: _result == 'fail'
+                          ? Colors.red[400]
+                          : Colors.green[400],
                       borderRadius: BorderRadius.circular(50),
                     ),
-                    child: Text(
-                        _result == 'success'
-                            ? 'Success!  Time: $_seconds: $_milliseconds'
-                            : 'Fail!',
+                    child: Text(_result,
                         style: const TextStyle(color: Colors.white)))
                 : null),
         const SizedBox(height: 24),
@@ -131,7 +128,7 @@ class _SuctionControllerState extends State<SuctionController> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const RecordPage()));
+                            builder: (context) => RecordPage(result: _result)));
                   })
               : AppButton(text: 'Save', customColor: Colors.grey[300])
         ])
