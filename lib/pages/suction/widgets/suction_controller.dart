@@ -40,7 +40,7 @@ class _SuctionControllerState extends State<SuctionController> {
         if (widget.position.value == 'no throat') {
           setState(() => _result = 'Passed!  Time: $_seconds: $_milliseconds');
         } else {
-          setState(() => _result = 'fail');
+          setState(() => _result = 'Fail');
         }
         timer.cancel();
         return;
@@ -88,7 +88,7 @@ class _SuctionControllerState extends State<SuctionController> {
                     alignment: Alignment.center,
                     width: double.maxFinite,
                     decoration: BoxDecoration(
-                      color: _result == 'fail'
+                      color: _result == 'Fail'
                           ? Colors.red[400]
                           : Colors.green[400],
                       borderRadius: BorderRadius.circular(50),
